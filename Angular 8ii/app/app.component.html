@@ -1,0 +1,4 @@
+<button (click)="fun()">PARENT</button>
+<app-child (obj)="Message=$event" [Message]="Value"></app-child>
+<h1>The Message from Child is:{{Message}}</h1>
+<router-outlet></router-outlet>
