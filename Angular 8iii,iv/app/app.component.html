@@ -1,0 +1,8 @@
+<h1>Using ngModel</h1>
+<input [(ngModel)]="MyString" type="text">
+<h1>The Length of String is:{{Length()}}</h1>
+<h1>Without Using ngModel</h1>
+<input #Data type="text">
+<button (click)="fun(Data.value)">SUBMIT</button>
+<h1>The Length of String:{{NewLength()}}</h1>
+<router-outlet></router-outlet>
