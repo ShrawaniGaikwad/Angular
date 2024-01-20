@@ -1,0 +1,73 @@
+<p  style="position:absolute; left: 400px;bottom: 630px; font-size:60px; color:rgb(208, 19, 120)">Contact Our</p>
+<p style="position:absolute; left: 250px; bottom:550px ;font-size:60px;">Customer Support Center</p>
+
+<p style="position:absolute; left: 650px; bottom:450px ;font-size: 30px;">Contact Information</p>
+<p style="position:absolute; left: 580px; bottom:410px ;font-size: 20px;">Please fill out your contact information below</p>
+
+<div style="position: absolute; left: 950px; bottom: 480px;">
+  <img class="img1" ngSrc="\assets\macbook-pro-13-2_10c1bc0f-0407-49b1-9f4f-4ee448e90e18.jpeg" width="330" height="320">
+</div>
+
+
+<form [formGroup]="MyForm" style="position: absolute; left: 50px; bottom: -50px;">
+  <div class="form-group">
+    <label class="required">Name</label>
+    <input [class.is-invalid] = "MyForm.get('FirstName')?.invalid && MyForm.get('FirstName')?.touched"style=" width: 400px;border-radius:2px" type="text" class="form-control" formControlName="FirstName">
+    <small [class.d-none]="MyForm.get('FirstName')?.valid || MyForm.get('FirstName')?.untouched" class="text-danger">required and should contains only characters</small>
+    <small> First Name</small>
+  </div>
+
+  <div class="form-group" style="position: absolute; left: 480px;bottom: 370px;">
+    <input style=" width: 400px;border-radius:2px" type="text" class="form-control" formControlName="LastName">
+    <small>Last Name</small>
+  </div>
+
+  <div class="form-group" style="margin-top: 20px;">
+    <label class="required">Email</label>
+    <input [class.is-invalid] = "MyForm.get('Email')?.invalid && MyForm.get('Email')?.touched"style=" width:1400px;border-radius:2px" type="text" class="form-control" formControlName="Email">
+    <small [class.d-none]="MyForm.get('Email')?.valid || MyForm.get('Email')?.untouched" class="text-danger">Enter Valid Email</small>
+    <small> </small>
+  </div>
+
+  <div class="form-group" style="margin-top: 20px;">
+    <label class="required">Phone</label>
+    <input [class.is-invalid] = "MyForm.get('Phone')?.invalid && MyForm.get('Phone')?.touched"style=" width:400px;border-radius:2px" type="text" class="form-control" formControlName="Phone">
+    <small [class.d-none]="MyForm.get('Phone')?.valid || MyForm.get('Phone')?.untouched" class="text-danger">required</small>
+  </div>
+
+  <div class="form-group" style="margin-top: 20px;">
+    <label class="required">Address</label>
+    <input [class.is-invalid] = "MyForm.get('City')?.invalid && MyForm.get('City')?.touched"style=" width:400px;border-radius:2px" type="text" class="form-control" formControlName="City">
+    <small [class.d-none]="MyForm.get('City')?.valid || MyForm.get('City')?.untouched" class="text-danger">required</small>
+    <small>City</small>
+  </div>
+
+  <div class="form-group" style="margin-top: 20px;position: absolute; left:450px; bottom:95px;width: 400px;">
+    <select class="form-control" formControlName="State" style="border-radius: 2px;">
+      <option value1="option1">Maharashtra</option>
+      <option value2="option2">Gujarat</option>
+      <option value3="option3">Uttar Pradesh</option>
+    </select>
+  <small>State</small>
+  <small [class.d-none]="MyForm.get('State')?.valid || MyForm.get('State')?.untouched" class="text-danger"> Choose</small>
+  </div> 
+
+  <div class="form-group" style="margin-top: 20px;position: absolute; left:900px; bottom:95px;width: 400px;">
+    <input [class.is-invalid] = "MyForm.get('ZIPCode')?.invalid && MyForm.get('ZIPCode')?.touched"style=" width:400px;border-radius:2px" type="text" class="form-control" formControlName="ZIPCode">
+    <small>ZIP Code</small>
+    <small [class.d-none]="MyForm.get('ZIPCode')?.valid || MyForm.get('ZIPCode')?.untouched" class="text-danger">Invalid ZipCode</small>
+  </div>
+
+  <div class="form-group" style="margin-top: 10px;">
+    <label class="required">Comments</label>
+    <textarea [class.is-invalid] = "MyForm.get('Comments')?.invalid && MyForm.get('Comments')?.touched"  class="form-control" formControlName="Comments" ></textarea>
+    <small></small>
+    <small [class.d-none]="MyForm.get('Comments')?.valid || MyForm.get('Comments')?.untouched" class="text-danger">Minimum 30 characters</small>
+  </div>
+
+  <div style="position: absolute; left: 550px; bottom: -50px;">
+    <button type="submit" [disabled]="!MyForm.valid" class="form-control" style="width: 250px;color: rgb(255, 255, 255); background-color:rgb(208, 19, 120);border-radius: 0px;">SUBMIT FORM</button>
+  </div>
+</form>
+
+<router-outlet></router-outlet>
